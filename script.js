@@ -2,7 +2,7 @@
 let livesLeft = 10;
 var matches =0;
 
-const boxHolder = document.querySelector(".outsideBox")
+// const boxHolder = document.querySelector(".outsideBox")
 
 let  playerLives = document.querySelector(".livesLeft")
 playerLives.textContent = livesLeft;
@@ -20,7 +20,7 @@ let firstOpened=false;
 let secondOpened=false;
 
 //
-const cardData =  [
+const imageArray =  [
 {imgSrc: "./images/pic1.webp", name:"pic1", id:1},
 {imgSrc: "./images/pic2.webp", name:"pic2", id:2},
 {imgSrc: "./images/pic3.webp", name:"pic3", id:3},
@@ -35,12 +35,28 @@ const cardData =  [
 {imgSrc: "./images/pic6.jpg", name:"pic6", id:12},
 ];
 
-console.log(cardData);
+// console.log(cardData);
+
+const outsideBox = document.querySelector(".outsideBox")
+
+function newBoard(){
+for (let i =0; i<imageArray.length; i++){
+    let card = document.createElement('img')
+    card.setAttribute('src', 'images/questionMark.png')
+    card.setAttribute('id', i)
+    // card.addEventListener("click", show)
+    outsideBox.appendChild(card)
+}
+}
+console.log(imageArray)
+
+newBoard();
+
 
 //Set the 12 boxes to have pic1-pic6 * 2
-document.querySelectorAll("insideBox").values = cardData
-const card=document.querySelectorAll("insideBox")
-let cards = [...card]
+// document.querySelectorAll("insideBox").values = cardData
+// const card=document.querySelectorAll("insideBox")
+// let cards = [...card]
 
 
 

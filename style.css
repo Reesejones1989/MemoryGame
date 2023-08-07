@@ -5,16 +5,26 @@ body{
     margin:auto auto;
     background: lightcoral
 }
-.outsideBox{
+.outsideBox {
     display: grid;
     gap: auto;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
-    height: 100vh;
+    height: 2vh;
     /* width: auto; */
     margin:0;
 
 }
+/* img{
+    display: grid;
+
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 33% 33% 33%;
+    height: auto;
+    width: auto;
+    margin: auto;
+    gap: auto;
+} */
 
 .insideBox {
     /* background-color:#0f4c75 ; */
