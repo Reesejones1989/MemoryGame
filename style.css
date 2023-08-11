@@ -47,7 +47,10 @@ img{
     align-items: center;
     height: auto;
     width: auto;
-}
+     display: grid;
+    
+
+          }
 h2{
     text-align: center;
 }

@@ -1,5 +1,5 @@
 
-let livesLeft = 10;
+let livesLeft = 5;
 var matches =0;
 let boxesCounted = 0;
 let  playerLives = document.querySelector(".livesLeft")
@@ -9,6 +9,7 @@ playerMatches.textContent = matches;
 const resetButton = document.querySelector("resetButton")
 // let firstOpened=false;
 // let secondOpened=false;
+// resetButton.style.
 
 const imageArray =  [
 {imgSrc: "./images/pic1.webp", name:"pic1", id:1},
@@ -42,75 +43,84 @@ for (let i =0; i<imageArray.length; i++){
     let card = document.createElement('img')
     card.setAttribute('src', 'images/questionMark.png')
     card.setAttribute('id', i)
-    // card.addEventListener("click", show)
     outsideBox.appendChild(card)
     
-    
+    // resetButton.addEventListener("click", function(evt2){
+    //     location.reload();
+    //     restartGame();
+
+
+    // })
+
     card.addEventListener("click", function (evt) {
-        // console.log(evt.target.id)
-        // console.log(imageArray[i].id -1)
+
         card.setAttribute('src', imageArray[i].imgSrc)
         card.setAttribute('name', imageArray[i].name)
-        // console.log(card.name)
-        flippedCards.push(evt.target.name)
+        card.setAttribute('id', imageArray[i].id )
+        flippedCards.push(evt.target)
         console.log(flippedCards)
 
-        if(flippedCards[0] === flippedCards[1]){
-            console.log(`You found a match!`)
-            playerMatches.textContent++
-            // flippedCards[0].setAttribute('border', '5px solid yellow')
-            // flippedCards[1].setAttribute('border', '5px solid yellow')
-            
-            flippedCards=[];
-        }
-        else if (flippedCards.length >=2){ //NOT WORKING
-            // card.setAttribute('src', 'images/questionMark.png')
-            // console.log(evt.target.name)
-            flippedCards=[];
-            playerLives.textContent--
-            // return flippedCards
-            if (playerLives.textContent === 0){
-                console.log(playerLives.textContent)
-                alert('GAME OVER')
+     if (flippedCards.length ===2){
+         if(flippedCards[0].name === flippedCards[1]?.name && flippedCards[0].id != flippedCards[1].id){
+         console.log(`You found a match!`)
+         playerMatches.textContent++
+        //  flippedCards[0].setAttribute('border', '5px solid yellow')
+        // flippedCards[1].setAttribute('border', '5px solid yellow')
+        flippedCards[0].style.border= "5px solid yellow"
+        flippedCards[1].style.border= "5px solid yellow"
+        flippedCards=[];
+            console.log(playerMatches.textContent)
+            if(playerMatches.textContent === "6"){
+                alert('You Won')
             }
+            // else if (flippedCards[0].id ===flippedCards[0].id || flippedCards[1].id === flippedCards[1].id){
+            //     alert ('Try Again!')
+            // }
+            
+
         }
-       
-        // else if(flippedCards[0] !== flippedCards[1]){
-        //     playerLives.textContent--
+        // else if(flippedCards[0].id === flippedCards[1]?.id){
+        //     console.log (`The cards are the same, try again!`)
+        //     console.log(flippedCards[0].id)
         // }
+        
+         else{
+            
      
-        // playerLives.textContent-- ; //change number of Lives
-      
+            // console.log(imageArray[i])
+            // console.log(flippedCards[0].src)
+
+            setTimeout(()=> {
+          flippedCards[0].src = "images/questionMark.png"
+        
+         flippedCards[1].src = "images/questionMark.png"
+         flippedCards.length = 0;
+
+            }, 750)
+    
+
+            
+             playerLives.textContent--
+
+             if(playerLives.textContent === "0"){
+                console.log("Game Over")
+                alert ('Game Over!')
+            }
+         }
+     }    
     })
-
-
-
-
-
 }
 }
-
 newBoard();
-
-
-// let cards = [...card]
-
-
-
-//If box[i] is selected, reveal the card
-
-
-
-
 
 function restartGame(){
     newBoard();
     shuffle(imageArray);
 }
 
-// resetButton.addEventListener("click", function (e) {
-//     restartGame();
-//     console.log(e.target)
+//  resetButton.addEventListener("click", function restartGame() {
+//      restartGame();
+//      console.log(e.target)
     
-//     })
+//      })
 
