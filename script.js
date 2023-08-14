@@ -89,7 +89,7 @@ for (let i =0; i<imageArray.length; i++){
                     element.remove()
                 })
                 newBoard();
-                alert('You Matched them All' + ` The Scores were  ${scoreArray}`)
+                alert('You Matched them All' + ` For a Score of  ${scoreArray}`)
             }
            
             
