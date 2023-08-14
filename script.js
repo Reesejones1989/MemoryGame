@@ -6,9 +6,8 @@ let  playerLives = document.querySelector(".livesLeft")
 playerLives.textContent = livesLeft;
 let playerMatches = document.querySelector(".matchesMade")
 playerMatches.textContent = matches;
-const resetButton = document.querySelector("resetButton")
-// let firstOpened=false;
-// let secondOpened=false;
+const resetButton = document.querySelector(".resetButton")
+
 // resetButton.style.
 
 const imageArray =  [
@@ -45,12 +44,12 @@ for (let i =0; i<imageArray.length; i++){
     card.setAttribute('id', i)
     outsideBox.appendChild(card)
     
-    // resetButton.addEventListener("click", function(evt2){
-    //     location.reload();
-    //     restartGame();
+    resetButton.addEventListener("click", function(evt2){
+        location.reload();
+        // restartGame();
 
 
-    // })
+    })
 
     card.addEventListener("click", function (evt) {
 
@@ -61,7 +60,7 @@ for (let i =0; i<imageArray.length; i++){
         console.log(flippedCards)
 
      if (flippedCards.length ===2){
-         if(flippedCards[0].name === flippedCards[1]?.name && flippedCards[0].id != flippedCards[1].id){
+         if(flippedCards[0].name === flippedCards[1]?.name && flippedCards[0].id != flippedCards[1]?.id){
          console.log(`You found a match!`)
          playerMatches.textContent++
         //  flippedCards[0].setAttribute('border', '5px solid yellow')
@@ -73,33 +72,18 @@ for (let i =0; i<imageArray.length; i++){
             if(playerMatches.textContent === "6"){
                 alert('You Won')
             }
-            // else if (flippedCards[0].id ===flippedCards[0].id || flippedCards[1].id === flippedCards[1].id){
-            //     alert ('Try Again!')
-            // }
+           
             
-
         }
-        // else if(flippedCards[0].id === flippedCards[1]?.id){
-        //     console.log (`The cards are the same, try again!`)
-        //     console.log(flippedCards[0].id)
-        // }
-        
          else{
-            
-     
-            // console.log(imageArray[i])
-            // console.log(flippedCards[0].src)
-
             setTimeout(()=> {
           flippedCards[0].src = "images/questionMark.png"
         
          flippedCards[1].src = "images/questionMark.png"
          flippedCards.length = 0;
 
-            }, 750)
+            }, 500)
     
-
-            
              playerLives.textContent--
 
              if(playerLives.textContent === "0"){
@@ -118,9 +102,4 @@ function restartGame(){
     shuffle(imageArray);
 }
 
-//  resetButton.addEventListener("click", function restartGame() {
-//      restartGame();
-//      console.log(e.target)
-    
-//      })
 
