@@ -7,6 +7,11 @@ playerLives.textContent = livesLeft;
 let playerMatches = document.querySelector(".matchesMade")
 playerMatches.textContent = matches;
 const resetButton = document.querySelector(".resetButton")
+const highScore = document.querySelector("#highScore")
+const scoreArray = [];
+let currentPlayer =0;
+
+
 
 // resetButton.style.
 
@@ -37,6 +42,8 @@ function shuffle(imageArray){
 
 function newBoard(){
     shuffle(imageArray);
+    // console.log(scoreArray)
+
 
 for (let i =0; i<imageArray.length; i++){
     let card = document.createElement('img')
@@ -57,25 +64,37 @@ for (let i =0; i<imageArray.length; i++){
         card.setAttribute('name', imageArray[i].name)
         card.setAttribute('id', imageArray[i].id )
         flippedCards.push(evt.target)
-        console.log(flippedCards)
+        // console.log(flippedCards)
 
      if (flippedCards.length ===2){
          if(flippedCards[0].name === flippedCards[1]?.name && flippedCards[0].id != flippedCards[1]?.id){
-         console.log(`You found a match!`)
+        //  console.log(`You found a match!`)
          playerMatches.textContent++
-        //  flippedCards[0].setAttribute('border', '5px solid yellow')
-        // flippedCards[1].setAttribute('border', '5px solid yellow')
+        
         flippedCards[0].style.border= "5px solid yellow"
         flippedCards[1].style.border= "5px solid yellow"
         flippedCards=[];
-            console.log(playerMatches.textContent)
+            // console.log(playerMatches.textContent)
             if(playerMatches.textContent === "6"){
-                alert('You Won')
+                // highScore = scoreArray
+                scoreArray.push(Number(playerMatches.textContent))
+                currentPlayer =1;
+                playerLives.textContent = "5";
+                playerMatches.textContent = "0"
+                // outsideBox.querySelectorAll("img").forEach((element)=> {
+                    // element.remove();
+                // })
+                Array.from(outsideBox.querySelectorAll("img")).forEach((element)=>{
+                    element.remove()
+                })
+                newBoard();
+                alert('You Matched them All' + ` The Scores were  ${scoreArray}`)
             }
            
             
         }
          else{
+       
             setTimeout(()=> {
           flippedCards[0].src = "images/questionMark.png"
         
@@ -85,15 +104,31 @@ for (let i =0; i<imageArray.length; i++){
             }, 500)
     
              playerLives.textContent--
+             
+
+            
+        
+
 
              if(playerLives.textContent === "0"){
-                console.log("Game Over")
-                alert ('Game Over!')
+                // console.log("Game Over")
+                scoreArray.push(Number(playerMatches.textContent))
+                currentPlayer = 1;
+                playerLives.textContent = "5";
+                playerMatches.textContent = "0"
+                Array.from(outsideBox.querySelectorAll("img")).forEach((element)=>{
+                    element.remove()
+                })
+                newBoard();
+                alert ('Game Over!' + ` Your Score was  ${scoreArray}`)
+    
             }
          }
      }    
     })
+    
 }
+
 }
 newBoard();
 
@@ -101,5 +136,19 @@ function restartGame(){
     newBoard();
     shuffle(imageArray);
 }
+if(currentPlayer === 1 && playerMatches.textContent === "6" || currentPlayer === 1 && playerLives.textContent === "0"){
+    console.log(scoreArray)
+    console.log(scoreArray[0])
+        if(scoreArray[0] > scoreArray[1]){
+            // document.querySelector(".winner").innerHTML= `<h2> Player One Wins! </h2>`
+            alert("Player One Wins")
+        }
+        else if (scoreArray[1] > scoreArray[0]){
+            // document.querySelector(".winner").innerHTML=`<h2> Player Two Wins!</h2>`;
+            alert("Player Two Wins")
+        }
+        else{
+            alert("Its a Tie")
+        }
 
-
+}
