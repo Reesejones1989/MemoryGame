@@ -1,15 +1,11 @@
 # MemoryGame
-The Memory Game is a game that tests ability to find 
-
-## Project title
-A little info about your project and/ or overview that explains **what** the project is about.
+The Memory Game is a game that tests ability to find matching pairs. Two Players can reach a score of 6. The two scores are compared and winner declared
 
 ## Motivation
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Created as an assignment for Per Scholas Module 1
 
 ## Build status
-Build status of continus integration i.e. travis, appveyor etc. Ex. - 
-
+Status is currently complete with the possibility of minor tweaks
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
 
