@@ -75,10 +75,11 @@ for (let i =0; i<imageArray.length; i++){
         flippedCards[1].style.border= "5px solid yellow"
         flippedCards=[];
             // console.log(playerMatches.textContent)
-            if(playerMatches.textContent === "6"){
+            if(currentPlayer === 0 && playerMatches.textContent === "6"){
                 // highScore = scoreArray
                 scoreArray.push(Number(playerMatches.textContent))
                 currentPlayer =1;
+                console.log(currentPlayer)
                 playerLives.textContent = "5";
                 playerMatches.textContent = "0"
                 // outsideBox.querySelectorAll("img").forEach((element)=> {
@@ -96,24 +97,15 @@ for (let i =0; i<imageArray.length; i++){
          else{
        
             setTimeout(()=> {
-          flippedCards[0].src = "images/questionMark.png"
-        
-         flippedCards[1].src = "images/questionMark.png"
-         flippedCards.length = 0;
-
+        flippedCards[0].src = "images/questionMark.png"
+        flippedCards[1].src = "images/questionMark.png"
+        flippedCards.length = 0;
             }, 500)
-    
              playerLives.textContent--
-             
-
-            
-        
-
-
-             if(playerLives.textContent === "0"){
-                // console.log("Game Over")
+             if(currentPlayer === 0 && playerLives.textContent === "0"){
                 scoreArray.push(Number(playerMatches.textContent))
                 currentPlayer = 1;
+                console.log(currentPlayer)
                 playerLives.textContent = "5";
                 playerMatches.textContent = "0"
                 Array.from(outsideBox.querySelectorAll("img")).forEach((element)=>{
@@ -121,34 +113,31 @@ for (let i =0; i<imageArray.length; i++){
                 })
                 newBoard();
                 alert ('Game Over!' + ` Your Score was  ${scoreArray}`)
-    
             }
          }
-     }    
+     }
+     console.log({currentPlayer, match:playerMatches.textContent, lives: playerLives.textContent})
+     if(currentPlayer === 1 && playerLives.textContent === "0" || currentPlayer === 1 && playerLives.textContent === "0"){
+        scoreArray.push(Number(playerMatches.textContent))
+      }
+     if(currentPlayer === 1 && playerMatches.textContent === "6" || currentPlayer === 1 && playerLives.textContent === "0"){
+        console.log(scoreArray)
+        if(scoreArray[0] > scoreArray[1]){
+                      alert("Player One Wins")
+                    }
+                    else if (scoreArray[1] > scoreArray[0]){
+                         alert("Player Two Wins")
+                     }
+                     else{
+                         alert("Its a Tie")
+                     }
+    }   
+    
     })
     
-}
-
-}
+}}
 newBoard();
-
 function restartGame(){
     newBoard();
     shuffle(imageArray);
-}
-if(currentPlayer === 1 && playerMatches.textContent === "6" || currentPlayer === 1 && playerLives.textContent === "0"){
-    console.log(scoreArray)
-    console.log(scoreArray[0])
-        if(scoreArray[0] > scoreArray[1]){
-            // document.querySelector(".winner").innerHTML= `<h2> Player One Wins! </h2>`
-            alert("Player One Wins")
-        }
-        else if (scoreArray[1] > scoreArray[0]){
-            // document.querySelector(".winner").innerHTML=`<h2> Player Two Wins!</h2>`;
-            alert("Player Two Wins")
-        }
-        else{
-            alert("Its a Tie")
-        }
-
 }
