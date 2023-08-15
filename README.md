@@ -1,5 +1,6 @@
 # MemoryGame
 The Memory Game is a game that tests ability to find matching pairs. Two Players can reach a score of 6. The two scores are compared and winner declared
+https://reesejones1989.github.io/MemoryGame/
 
 ## Motivation
 Created as an assignment for Per Scholas Module 1
@@ -7,7 +8,7 @@ Created as an assignment for Per Scholas Module 1
 ## Build status
 Status is currently complete with the possibility of minor tweaks
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)]
 
 ## Code style
 If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
