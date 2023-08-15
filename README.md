@@ -7,8 +7,6 @@ Created as an assignment for Per Scholas Module 1
 
 ## Build status
 Status is currently complete with the possibility of minor tweaks
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)]
 
 ## Code style
 If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
@@ -19,10 +17,8 @@ If you're using any code style like xo, standard etc. That will help others whil
 Include logo/demo screenshot etc.
 
 ## Tech/framework used
-Ex. -
+<b>Built with HTML, CSS, JavaScript </b>
 
-<b>Built with</b>
-- [Electron](https://electron.atom.io)
 
 ## Features
 What makes your project stand out?
@@ -53,6 +49,3 @@ Give proper credits. This could be a link to any repo which inspired you to buil
 #### Anything else that seems useful
 
 ## License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
